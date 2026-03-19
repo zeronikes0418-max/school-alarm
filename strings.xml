@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">학교알리미</string>
+    <string name="channel_name">학교알리미 알람</string>
+    <string name="channel_desc">매일 아침 준비물과 과제를 알려주는 알람</string>
+</resources>
