@@ -1,4 +1,4 @@
-name: APK build
+name: Build APK
 
 on:
   push:
@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: List files
-        run: ls -R
+      - name: Show files
+        run: ls -la
 
-      - name: Give permission
-        run: chmod +x gradlew
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -24,5 +24,5 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Build
-        run: ./gradlew assembleDebug
+      - name: Build Debug APK
+        run: bash ./gradlew assembleDebug
