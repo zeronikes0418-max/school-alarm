@@ -1,0 +1,24 @@
+name: APK build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: permission
+        run: chmod +x ./gradlew
+
+      - name: setup java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: build apk
+        run: ./gradlew assembleDebug
