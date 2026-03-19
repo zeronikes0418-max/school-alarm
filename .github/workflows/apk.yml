@@ -9,13 +9,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - run: chmod +x ./gradlew
+      - name: List files
+        run: ls -R
 
-      - uses: actions/setup-java@v3
+      - name: Give permission
+        run: chmod +x gradlew
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
 
-      - run: ./gradlew assembleDebug
+      - name: Build
+        run: ./gradlew assembleDebug
